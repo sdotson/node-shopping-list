@@ -36,7 +36,7 @@ Storage.prototype.update = function(updatedItem) {
     var item;
 
     for (var i = 0; i < this.items.length; i++) {
-        if (this.items[i].id == updatedItem.id) {
+        if (this.items[i].id == parseInt(updatedItem.id)) {
             this.items[i].name = updatedItem.name;
             item = this.items[i];
         }
