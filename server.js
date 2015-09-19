@@ -15,7 +15,7 @@ Storage.prototype.add = function(name) {
 };
 
 Storage.prototype.remove = function(id) {
-    var item = { id: id };
+    var item = { id: parseInt(id) };
 
     for (var i = 0; i < this.items.length; i++) {
         if (this.items[i].id == id) {
