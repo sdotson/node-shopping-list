@@ -33,16 +33,21 @@ Storage.prototype.remove = function(id) {
 };
 
 Storage.prototype.update = function(updatedItem) {
-    var item;
+    var thisItem = {};
 
     for (var i = 0; i < this.items.length; i++) {
-        if (this.items[i].id == parseInt(updatedItem.id)) {
+        if (this.items[i].id == updatedItem.id) {
             this.items[i].name = updatedItem.name;
-            item = this.items[i];
+            thisItem = this.items[i];
         }
     }
-    
-    return item;
+
+    if (!thisItem.name) {
+        thisItem.status = "Error";
+        thisItem.message = "The provided item ID does not exist.";
+    }
+
+    return thisItem;
 };
 
 var storage = new Storage();
